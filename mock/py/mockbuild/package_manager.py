@@ -353,8 +353,8 @@ Error:      Neither dnf-utils nor yum-utils are installed. Dnf-utils or yum-util
                 expand[key] = self.config['dnf_vars'][key]
 
         for key, value in expand.items():
-            pattern = "\$(?:" + re.escape(key)
-            pattern += "|\{" + re.escape(key) + "\})"
+            pattern = r"\$(?:" + re.escape(key)
+            pattern += r"|\{" + re.escape(key) + r"\})"
             pattern = re.compile(pattern)
             string = pattern.sub(value, string)
 
